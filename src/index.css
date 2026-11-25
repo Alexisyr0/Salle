@@ -141,7 +141,7 @@ main { max-width: 720px; margin: 0 auto; }
 .bloc-list { display: flex; flex-direction: column; }
 .bloc-item { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; padding: 11px 0; border-top: 1px solid var(--border); font-weight: 560; }
 .bloc-f { color: var(--muted); font-size: 13px; font-weight: 500; }
-.bloc-item .chev { color: var(--muted); }
+.bloc-item .chev { color: var(--muted); grid-area: auto; }
 .rules ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.45; color: var(--muted); }
 
 .tabbar {
@@ -153,7 +153,7 @@ main { max-width: 720px; margin: 0 auto; }
 }
 .tabbar a { flex: 1; max-width: 200px; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px; border-radius: 12px; font-size: 12px; color: var(--muted); font-weight: 600; }
 .tabbar a.active { color: var(--accent); }
-.tab-ic { font-size: 20px; line-height: 1; }
+.tab-ic { font-size: 20px; line-height: 1; height: 22px; font-weight: 800; }
 
 @media (min-width: 760px) {
   .map-section { flex-direction: column; }

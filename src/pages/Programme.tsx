@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { getExercice } from '../data/exercises'
+import SeanceView from '../components/SeanceView'
 import { SEANCES, SEMAINE } from '../data/programme'
 
 export default function Programme() {
@@ -28,31 +27,7 @@ export default function Programme() {
       </div>
 
       {SEANCES.filter((s) => s.id === open).map((s) => (
-        <div key={s.id}>
-          <div className="seance-head">
-            <h2>{s.titre}</h2>
-            <span>{s.sousTitre}</span>
-          </div>
-          {s.blocs.map((b) => (
-            <section key={b.titre} className="card bloc">
-              <h3>{b.titre}</h3>
-              <p className="bloc-c">{b.consigne}</p>
-              <div className="bloc-list">
-                {b.exercices.map((id) => {
-                  const e = getExercice(id)
-                  if (!e) return null
-                  return (
-                    <Link key={id} to={`/exo/${id}`} className="bloc-item">
-                      <span>{e.nom}</span>
-                      <span className="bloc-f">{e.format}</span>
-                      <span className="chev">›</span>
-                    </Link>
-                  )
-                })}
-              </div>
-            </section>
-          ))}
-        </div>
+        <SeanceView key={s.id} s={s} />
       ))}
 
       <section className="card section rules">
