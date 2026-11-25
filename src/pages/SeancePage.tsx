@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import SeanceView from '../components/SeanceView'
+import { today } from '../lib/store'
 import { SEANCES } from '../data/programme'
 
 export default function SeancePage({ id }: { id: string }) {
@@ -6,7 +8,11 @@ export default function SeancePage({ id }: { id: string }) {
   if (!s) return null
   return (
     <div className="page">
+      <Link className="btn btn-primary btn-block start" to={`/log/${today()}?seance=${s.id}`}>
+        ▶ Commencer la séance du jour
+      </Link>
       <SeanceView s={s} />
+      {s.id === 'A' || s.id === 'B' ? (
       <section className="card section rules">
         <h2>Rappel</h2>
         <ul>
@@ -15,6 +21,7 @@ export default function SeancePage({ id }: { id: string }) {
           <li>Genou : douleur au-dessus de 3/10, tu réduis l'amplitude ou la charge.</li>
         </ul>
       </section>
+      ) : null}
     </div>
   )
 }

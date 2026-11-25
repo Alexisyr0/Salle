@@ -67,11 +67,17 @@ interface Props {
   secondaires?: MuscleId[]
   onSelect?: (m: MuscleId) => void
   compact?: boolean
+  /** 0 à 1 par muscle, pour la carte de chaleur */
+  intensite?: Partial<Record<MuscleId, number>>
 }
 
-export default function BodyMap({ vue, selected, principaux = [], secondaires = [], onSelect, compact }: Props) {
+export default function BodyMap({ vue, selected, principaux = [], secondaires = [], onSelect, compact, intensite }: Props) {
   const shapes = vue === 'face' ? FACE : DOS
   const fillFor = (m: MuscleId) => {
+    if (intensite) {
+      const v = intensite[m] ?? 0
+      return v > 0 ? `color-mix(in srgb, var(--accent) ${Math.round(25 + v * 75)}%, var(--muscle))` : 'var(--muscle)'
+    }
     if (selected === m || principaux.includes(m)) return 'var(--accent)'
     if (secondaires.includes(m)) return 'var(--accent-soft)'
     return 'var(--muscle)'

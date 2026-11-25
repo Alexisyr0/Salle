@@ -22,12 +22,12 @@ export type Materiel =
   | 'Machine'
   | 'Poulie'
   | 'Poids du corps'
-  | 'Élastique'
-  | 'Rouleau'
+  | 'Mini-élastique'
+  | 'Tapis'
 
 export type Genou = 'ok' | 'prudence' | 'eviter'
 
-export type Seance = 'A' | 'B' | 'Maison' | 'Activation' | 'Mobilité' | 'Extra'
+export type Seance = 'A' | 'B' | 'Maison' | 'Activation' | 'Mobilité' | 'Extra' | 'Alternative'
 
 export interface Exercice {
   id: string
@@ -47,4 +47,6 @@ export interface Exercice {
   /** 'exrx' = consignes reprises (reformulées) de la fiche ExRx ; 'claude' = pas de fiche ExRx */
   source: 'exrx' | 'claude'
   seances: Seance[]
+  /** id de l'exercice équivalent faisable à la maison (poids du corps, tapis, mini-élastique) */
+  maison?: string
 }

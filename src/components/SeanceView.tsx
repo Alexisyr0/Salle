@@ -18,11 +18,18 @@ export default function SeanceView({ s }: { s: SeanceProg }) {
               const e = getExercice(id)
               if (!e) return null
               return (
-                <Link key={id} to={`/exo/${id}`} className="bloc-item">
-                  <span>{e.nom}</span>
-                  <span className="bloc-f">{e.format}</span>
-                  <span className="chev">›</span>
-                </Link>
+                <div key={id} className="bloc-entry">
+                  <Link to={`/exo/${id}`} className="bloc-item">
+                    <span>{e.nom}</span>
+                    <span className="bloc-f">{e.format}</span>
+                    <span className="chev">›</span>
+                  </Link>
+                  {e.maison && getExercice(e.maison) && (
+                    <Link to={`/exo/${e.maison}`} className="bloc-alt">
+                      🏠 À la maison : {getExercice(e.maison)!.nom}
+                    </Link>
+                  )}
+                </div>
               )
             })}
           </div>

@@ -3,7 +3,7 @@ export const SEMAINE = [
   { jour: 'Mardi', seance: 'Activation + course intense + mobilité', duree: '50 min' },
   { jour: 'Mercredi', seance: 'Muscu full body B', duree: '45 min' },
   { jour: 'Jeudi', seance: 'Activation + EF + mobilité', duree: '45 min' },
-  { jour: 'Vendredi', seance: 'Renfo maison', duree: '25 min' },
+  { jour: 'Vendredi', seance: 'Renfo maison', duree: '30 min' },
   { jour: 'Samedi', seance: 'Activation + sortie longue + mobilité', duree: '60–70 min' },
   { jour: 'Dimanche', seance: 'Repos + mobilité', duree: '10 min' },
 ]
@@ -53,12 +53,12 @@ export const SEANCES: SeanceProg[] = [
   {
     id: 'Maison',
     titre: 'Renfo maison',
-    sousTitre: 'Vendredi · 25 min',
+    sousTitre: 'Vendredi · 30 min · tapis + mini-élastique',
     blocs: [
       {
         titre: 'Circuit · 3 tours',
-        consigne: 'Enchaîne les 6 exercices sans pause, 1 min 30 de repos entre les tours.',
-        exercices: ['souleve-de-terre-1-jambe', 'elevation-soleaire', 'pont-fessier-1-jambe', 'squat-pointes', 'chaise-mur', 'monster-walk'],
+        consigne: 'Matériel : tapis + mini-élastique. Enchaîne les 7 exercices sans pause, 1 min 30 de repos entre les tours.',
+        exercices: ['souleve-de-terre-1-jambe', 'elevation-soleaire', 'pont-fessier-1-jambe', 'squat-pointes', 'chaise-mur', 'monster-walk', 'coquillage'],
       },
     ],
   },
@@ -73,12 +73,12 @@ export const SEANCES: SeanceProg[] = [
   {
     id: 'Mobilité',
     titre: 'Mobilité',
-    sousTitre: 'Après chaque course et le dimanche · 10 min',
+    sousTitre: 'Après chaque course et le dimanche · 10 min · tapis',
     blocs: [
       {
         titre: 'Routine',
         consigne: 'Dans l\'ordre, sans forcer.',
-        exercices: ['cheville-genou-mur', 'fente-basse', 'hanches-90-90', 'etirement-mollet', 'rouleau-quadriceps', 'thread-the-needle'],
+        exercices: ['cheville-genou-mur', 'fente-basse', 'hanches-90-90', 'etirement-mollet', 'etirement-quadriceps', 'thread-the-needle'],
       },
     ],
   },

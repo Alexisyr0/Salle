@@ -7,7 +7,8 @@ import { MUSCLES, MUSCLE_IDS } from '../data/muscles'
 import { matches } from '../lib/search'
 import type { Materiel, MuscleId } from '../types'
 
-const MATERIELS: Materiel[] = ['Haltères', 'Barre', 'Machine', 'Poulie', 'Poids du corps', 'Élastique', 'Rouleau']
+const MATERIELS: Materiel[] = ['Haltères', 'Barre', 'Machine', 'Poulie', 'Poids du corps', 'Mini-élastique', 'Tapis']
+const MAISON: Materiel[] = ['Poids du corps', 'Mini-élastique', 'Tapis']
 
 export default function Home() {
   const [params, setParams] = useSearchParams()
@@ -30,7 +31,7 @@ export default function Home() {
       (e) =>
         matches(e, q) &&
         (!muscle || e.principaux.includes(muscle) || e.secondaires.includes(muscle)) &&
-        (!mat || e.materiel === mat),
+        (!mat || (mat === ('maison' as Materiel) ? MAISON.includes(e.materiel) : e.materiel === mat)),
     )
     if (muscle) r.sort((a, b) => Number(b.principaux.includes(muscle)) - Number(a.principaux.includes(muscle)))
     return r
@@ -82,6 +83,9 @@ export default function Home() {
         ))}
       </div>
       <div className="chips" aria-label="Matériel">
+        <button className={'chip chip-alt' + (mat === ('maison' as Materiel) ? ' on' : '')} onClick={() => set('mat', mat === ('maison' as Materiel) ? null : 'maison')}>
+          🏠 À la maison
+        </button>
         {MATERIELS.filter((x) => EXERCICES.some((e) => e.materiel === x)).map((x) => (
           <button key={x} className={'chip chip-alt' + (mat === x ? ' on' : '')} onClick={() => set('mat', mat === x ? null : x)}>
             {x}
