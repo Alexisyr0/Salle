@@ -236,7 +236,7 @@ export async function synchroniser() {
 
 function traduire(m: string) {
   if (/invalid login credentials/i.test(m)) return 'Email ou mot de passe incorrect.'
-  if (/failed to fetch|network|load failed/i.test(m)) return 'Impossible de joindre Supabase : vérifie ta connexion internet et les variables VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY.'
+  if (/failed to fetch|network|load failed/i.test(m)) return 'Impossible de joindre Supabase : vérifie ta connexion internet, et l’URL et la clé dans src/config.ts.'
   if (/relation .* does not exist|could not find the table/i.test(m)) return "La table n'existe pas encore : lance le fichier supabase/schema.sql dans le SQL Editor."
   if (/email not confirmed/i.test(m)) return "Email non confirmé : dans Supabase, confirme l'utilisateur (Auto Confirm User)."
   return m

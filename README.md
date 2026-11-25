@@ -38,13 +38,13 @@ Les données sont stockées dans le navigateur du téléphone (localStorage). Pe
 2. **Authentication → Users → Add user → Create new user** : ton email + un mot de passe, coche **Auto Confirm User**.
    (L'app n'a pas d'inscription : seul ce compte peut se connecter.)
 3. **Project Settings → API** : copie la **Project URL** et la clé **anon public**.
-4. Cloudflare Pages → ton projet → **Settings → Variables and Secrets** → ajoute :
-   - `VITE_SUPABASE_URL` = la Project URL
-   - `VITE_SUPABASE_ANON_KEY` = la clé anon
-   puis **Deployments → Retry deployment** (les variables sont lues au build).
+4. Dans ton dépôt GitHub, ouvre `src/config.ts` et colle-les entre les guillemets :
+   ```ts
+   export const SUPABASE_URL = 'https://xxxx.supabase.co'
+   export const SUPABASE_ANON_KEY = 'eyJ...'
+   ```
+   Commit → Cloudflare redéploie tout seul. (Jamais la clé `service_role`.)
 5. Dans l'app : **Journal → Connexion**. Ton journal local est envoyé, puis tout reste synchronisé (pastille verte en haut à droite).
-
-En local : copie `.env.example` en `.env` et remplis les deux valeurs.
 
 L'app fonctionne aussi hors ligne : les séances sont gardées sur le téléphone et envoyées au retour du réseau.
 

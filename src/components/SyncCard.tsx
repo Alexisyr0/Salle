@@ -28,7 +28,7 @@ export default function SyncCard() {
       <section className="card section">
         <h3 className="h3-mb">Compte et synchro</h3>
         <p className="muted small-p">
-          Supabase n'est pas encore configuré : tes données restent seulement sur ce téléphone. Suis le fichier README (section Supabase) pour activer la synchro.
+          Supabase n'est pas encore configuré : tes données restent seulement sur ce téléphone. Remplis src/config.ts dans ton dépôt GitHub (voir le README) pour activer la synchro.
         </p>
       </section>
     )

@@ -1,7 +1,9 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
-const key = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../config'
+
+const url = (import.meta.env.VITE_SUPABASE_URL as string | undefined) || SUPABASE_URL
+const key = (import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined) || SUPABASE_ANON_KEY
 
 /** null si les variables d'environnement ne sont pas renseignées : l'app marche alors en local seulement */
 export const supabase: SupabaseClient | null =
