@@ -5,5 +5,5 @@
  * La clé anon est publique par conception : tes données sont protégées par les règles
  * de la table (RLS, fichier supabase/schema.sql). Ne mets JAMAIS ici la clé "service_role".
  */
-export const SUPABASE_URL = ''
-export const SUPABASE_ANON_KEY = ''
+export const SUPABASE_URL = 'https://jqpzduumgzdquxzogifz.supabase.co'
+export const SUPABASE_ANON_KEY = 'sb_publishable_eoxxnCpuB1lD_jHV-G52uA_-fCKwpFA'
